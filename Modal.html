@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modal</title>
+</head>
+<body>
+
+
+<button id="modalbtn" type="button" onclick="Modal()"> Modal</button>
+<div id="modaldiv">
+
+    <p > <i> <b>This is modal</b> </i> </p>
+    <button  type="button" onclick="savebt()">Save
+    </button>
+    <button onclick="closebtn()" type="button">close
+    </button>
+    <style>
+
+        div{
+
+           width: 505px;
+            height: 50px;
+            margin: auto;
+            text-align: center;
+            color: white;background-color: #212462;
+            border-style: groove;
+
+            box-shadow: 4px 4px 3px rgb(128, 128, 128);
+                display:none;
+            font-family: Dubai,serif;
+
+
+
+
+        }
+    </style>
+
+
+    <script>
+        function Modal() {
+            let x = document.getElementById('modaldiv')
+            if (window.getComputedStyle(x).display === "none") {
+                x.style.display = "block";
+            }else {
+                x.style.display = "none";
+
+
+            }
+
+        }
+        function closebtn() {
+
+            let y = document.getElementById('modaldiv')
+            if (window.getComputedStyle(y).display === "block") {
+                y.style.display = "none";
+            }
+        }
+            function savebt(){
+            alert('Your Data Has been Saved  !!!');
+                window.blur()
+            }
+    </script>
+</div>
+</body>
+</html>

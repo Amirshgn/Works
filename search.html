@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div#dropdown,#search {
+            background-color: #ffd700;
+            box-shadow: #939393 1px 5px 5px ;
+            width:100px;
+            height: auto;
+            transition: height 5s,width 2s;
+            text-shadow: black 2px 5px 10px;
+
+
+        }
+            #dropdown:hover {
+                height: 300px;
+                width: 300px;
+
+            }
+
+        form {
+            color: #ff0000;
+            display: flex;
+            padding: 2px;
+            border: 1px solid currentColor;
+            border-radius: 150px;
+
+        }
+
+        input[ type ="search" ] {
+            border: none;
+            background: transparent;
+            margin: 0px;
+            padding: 7px 8px;
+            font-size: 14px;
+            color: inherit;
+            border: 1px solid transparent;
+        }
+
+        input [type="Search"]::placeholder {
+
+            color: #54ff00;
+        }
+
+
+    </style>
+</head>
+<body>
+<form>
+    <input onclick="menu()" type="search" placeholder="Search here">
+
+</form>
+
+<div id="dropdown" style="display: none">
+    <input type="text" id="search" onkeyup="search(event)">
+
+
+
+    <p class="item">Cofee</p>
+    <p class="item">Soda</p>
+    <p class="item">Humburger</p>
+    <p class="item">peperoni</p>
+    <p class="item">Sandwich</p>
+    <p class="item">Orange juice</p>
+    <p class="item">Nuts</p>
+    <p class="item">Roast beaf</p>
+
+</div>
+
+
+<script>
+    function menu() {
+        let dropdown = document.getElementById("dropdown")
+        if (dropdown.style.display === "none") {
+            dropdown.style.display = "block";
+        } else {
+            dropdown.style.display = "none";
+        }
+    }
+
+
+    function search(event) {
+        console.log(event.key)
+        if (event.key === 'Escape') {
+            document.getElementById("dropdown").style.display = "none";
+            return;
+        }
+
+        if (event.key !== 'Enter') {
+            return;
+        }
+        let searchElement = document.getElementById("search");
+        let value = searchElement.value;
+
+        let elements = document.getElementsByClassName('item');
+        for (const elementsKey in elements) {
+            let p = elements[elementsKey];
+            if (p.innerText.includes(value)) {
+                p.style.display = 'block'
+            }else{
+                p.style.display = 'none'
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>
